@@ -96,4 +96,35 @@ function action10(e){
 }
 
 
+//screen info-height
+itemArray[10].addEventListener('click',action11);
+function action11(e){
+    console.log(itemArray[10].firstElementChild.innerHTML=window.screen.height);
+}
+
+//screen info-width
+itemArray[11].addEventListener('click',action12);
+function action12(e){
+    console.log(itemArray[11].firstElementChild.innerHTML=window.screen.width);
+}
+
+//screen info-pixldebth
+itemArray[12].addEventListener('click',action13);
+function action13(e){
+    console.log(itemArray[12].firstElementChild.innerHTML=window.screen.pixelDepth);
+}
+
+
+//browsing-history info--length
+itemArray[13].addEventListener('click',action14);
+function action14(e){
+    console.log(itemArray[13].firstElementChild.innerHTML=window.history.length);
+}
+
+//browsing-history info--state
+itemArray[14].addEventListener('click',action15);
+function action15(e){
+    console.log(itemArray[14].firstElementChild.innerHTML=window.history.state);
+}
+
 
