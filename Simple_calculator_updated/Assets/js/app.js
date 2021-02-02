@@ -41,7 +41,24 @@ function calcFunction(e){
 
     else if(buttonText=='log'){
         screenValue =screen.value;
-        screen.value=Math.log(screenValue,10); 
+        screen.value=(Math.log(screenValue))/Math.log(10); 
+    }
+
+    else if(buttonText=='X2'){
+        screenValue = screen.value;
+        screen.value =Math.pow(screenValue,2);
+
+    }
+
+    else if(buttonText=='<--'){
+        screenValue = screen.value;
+        let temp='';
+        for(let i=0;i<screenValue.length-1;i++){
+            temp=temp+screenValue[i]
+
+        }
+        screen.value = temp;
+
     }
 
     else{
