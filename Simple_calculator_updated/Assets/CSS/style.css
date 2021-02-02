@@ -3,3 +3,55 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
+body{
+    background: #cccccc;
+}
+
+.calc-body{
+    border-radius: 25px;
+    background-color: #ecf0f3;
+    height: 95vh;
+    width: 30vw;
+    margin: auto;
+}
+
+.calc-title{
+    margin-left: 25%;
+    font-size: 25px;
+    color: black;
+}
+
+table{
+    margin-left: 5px;
+    margin-top: 100px;
+}
+
+input{
+    box-shadow: inset 8px 8px 8px #cbced1;
+    inset: -8px -8px 8px #fff;
+    outline: none;
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    height: 45px;
+    width: 20vw;
+    margin-top: 40px;
+    position: fixed;
+    margin-left: 60px;
+    border-radius: 20px;
+    border: none;
+
+}
+
+button{
+    box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(94, 104,100, 0.288);
+    color: black;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    height: 60px;
+    width: 70px;
+    font-size: 30px;
+    margin:10px;
+
+}
