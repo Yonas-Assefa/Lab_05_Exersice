@@ -13,6 +13,9 @@ const clearBtn = document.querySelector('.clear-tasks');      //the all task cle
 //the reload button at the top right of navigation
 const reloadIcon = document.querySelector('.fa'); 
 
+//key word to hold the search word 
+var searchWord;
+
 // Add Event Listener  [Form , clearBtn and filter search input ]
 
 // form submit 
@@ -79,7 +82,7 @@ function clearAllTasks() {
 
 }
 
-var searchWord;
+
 
 // Filter tasks function definition 
 function filterTasks(e) {
@@ -95,17 +98,34 @@ function filterTasks(e) {
 
 }
 
+
+//function to compare tasks
 function compare(e){
     if(e.key==='Enter'){
-        //console.log(searchWord)
         tasksList.forEach(compare1);
         function compare1(item){
         let itemValue=item.innerText;
-        console.log(item)
-        if(itemValue==searchWord){
-            item.style.display='block'
 
+        let len1=searchWord.length;
+        let len2=itemValue.length;
+        let cont='';
+
+        for(let i=0;i<len1;i++){
+            let temp=searchWord[i];
+
+            for(let j=0;j<len2;j++){
+                if(temp==itemValue[j]){
+                    cont=cont + temp;
+                    break;
+                }
+            }
         }
+
+        if(searchWord==cont){
+            item.style.display='block'
+        }
+
+        
         else{item.style.display='none';
         
     }
