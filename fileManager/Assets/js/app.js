@@ -36,7 +36,7 @@ taskList.addEventListener('click', removeTask);
 // Event Listener for reload 
 reloadIcon.addEventListener('click', reloadPage);
 
-  
+
 
 
 
@@ -54,6 +54,15 @@ function addNewTask(e) {
         li.className = 'collection-item';
         // Create text node and append it 
         li.appendChild(document.createTextNode(taskInput.value));
+
+        //add date to the task lists
+        const span = document.createElement('p');
+        span.className='date';
+        var date = new Date();
+        span.innerHTML=date;
+        li.appendChild(span);
+        span.style.display='none'
+
         // Create new element for the link 
         const link = document.createElement('a');
         // Add class and the x marker for a 
@@ -69,6 +78,8 @@ function addNewTask(e) {
 
   e.preventDefault(); //disable form submission
 }
+
+
 
 
 
@@ -156,4 +167,57 @@ function reloadPage() {
     //using the reload fun on location object 
     location.reload();
 }
+
+
+
+// sorting button
+const ascendingBtn = document.querySelector(".ascending");
+const descendingBtn = document.querySelector(".descending");
+const sortedCollaction = document.querySelector(".sorted-collaction");
+
+//add event listener
+ascendingBtn.addEventListener("click", ascendingSort);
+descendingBtn.addEventListener("click", descendingSort);
+
+
+// ascending sorting
+function ascendingSort() {
+  const unorderedcollaction = document.querySelectorAll(".collection-item");
+  var orderdHolderArray = new Array();
+  const currentTime = Date.now();
+  for (let i = 0; i < unorderedcollaction.length; i++) {
+    listItem = unorderedcollaction[i].querySelector(".date");
+    taskListTime = listItem.textContent;
+    let differenceTime = currentTime - taskListTime;
+    orderdHolderArray[i] = [differenceTime, i];
+  }
+  orderdHolderArray.sort();
+  for (let i = 0; i < unorderedcollaction.length; i++) {
+    sortedCollaction.appendChild(unorderedcollaction[orderdHolderArray[i][1]]);
+  }
+  for (let i = 0; i < unorderedcollaction.length; i++) {
+    taskList.appendChild(unorderedcollaction[orderdHolderArray[i][1]]);
+  }
+}
+// descending sorting
+function descendingSort() {
+  const unorderedList = document.querySelectorAll(".collection-item");
+  var orderingArray = new Array();
+  const currentTime = Date.now();
+  for (let i = 0; i < unorderedList.length; i++) {
+    listItem = unorderedList[i].querySelector(".date");
+    taskListTime = listItem.textContent;
+    let differenceTime = currentTime - taskListTime;
+    orderingArray[i] = [differenceTime, i];
+  }
+  orderingArray.sort();
+  orderingArray.reverse();
+  for (let i = 0; i < unorderedList.length; i++) {
+    sortedCollaction.appendChild(unorderedList[orderingArray[i][1]]);
+  }
+  for (let i = 0; i < unorderedList.length; i++) {
+    taskList.appendChild(unorderedList[orderingArray[i][1]]);
+  }
+}
+
 
